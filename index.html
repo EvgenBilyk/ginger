@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Тест Гингера</title>
+</head>
+
+<body>
+
+    <div class="container col-lg-12">
+        <div class="row">
+            <div class="chart-container hide mt-4" style="position: relative; height:40vh; width:80vw">
+                <canvas class='chartjsLegend' id="myChart" width="400px" height="400px"></canvas>
+            </div>
+            <div class="hide" id="table"></div>
+            <div class="test">
+                <div class="row mt-4">
+                    <h1>Тест Гингера</h1>
+                    <h4>Оцените по 10-ти бальной шкале на сколько присущи Вам следующие черты</h4>
+                </div>
+                <div class="row">
+                    <div class="mt-2 mb-2">
+                        <div class="btn-group input-elem col-lg-12" role="group"
+                            aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+                                value="1" checked>
+                            <label class="btn btn-outline-secondary" for="btnradio1">1</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="2" id="btnradio2"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio2">2</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="3" id="btnradio3"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio3">3</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="4" id="btnradio4"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio4">4</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="5" id="btnradio5"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio5">5</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="6" id="btnradio6"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio6">6</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="7" id="btnradio7"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio7">7</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="8" id="btnradio8"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio8">8</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="9" id="btnradio9"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio9">9</label>
+                            <input type="radio" class="btn-check" name="btnradio" value="10" id="btnradio10"
+                                autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio10">10</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="list-group ms-2" id="list-question">
+                        <li class="list-group-item">ригидность</li>
+                        <li class="list-group-item">болезненная обидчивость</li>
+                        <li class="list-group-item">назойливость</li>
+                        <li class="list-group-item">сильная потребность сказать последнее слово</li>
+                        <li class="list-group-item">недоверие</li>
+                        <li class="list-group-item">категоричность</li>
+                        <li class="list-group-item">опора в основном на авторитетное мнение</li>
+                        <li class="list-group-item">наивность</li>
+                        <li class="list-group-item">ранимость</li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="btn-group mt-2 mb-1" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" id='last' class="btn btn-secondary last"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                            </svg>назад</button>
+                        <button type="button" id='next' class="btn btn-secondary next">вперед<svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg></button>
+                    </div>
+                    <div class="btn-group mt-2 mb-4" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" id='result' class="btn btn-success" id="liveToastBtn" hidden>Закончить
+                            тест</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="question.js"></script>
+    <script src="class/ChartGinger.js"></script>
+    <script src="class/TableGinger.js"></script>
+    <script src="class/ButtonHandler.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
