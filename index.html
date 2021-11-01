@@ -13,12 +13,15 @@
 
 <body>
 
+
     <div class="container col-lg-12">
         <div class="row">
             <div class="chart-container hide mt-4" style="position: relative; height:40vh; width:80vw">
                 <canvas class='chartjsLegend' id="myChart" width="400px" height="400px"></canvas>
             </div>
-            <div class="hide" id="table"></div>
+            <div class="hide" id="table">
+
+            </div>
             <div class="test">
                 <div class="row mt-4">
                     <h1>Тест Гингера</h1>
@@ -29,7 +32,7 @@
                         <div class="btn-group input-elem col-lg-12" role="group"
                             aria-label="Basic radio toggle button group">
                             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
-                                value="1" checked>
+                                value="1">
                             <label class="btn btn-outline-secondary" for="btnradio1">1</label>
                             <input type="radio" class="btn-check" name="btnradio" value="2" id="btnradio2"
                                 autocomplete="off">
@@ -62,27 +65,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <ul class="list-group ms-2" id="list-question">
-                        <li class="list-group-item">ригидность</li>
-                        <li class="list-group-item">болезненная обидчивость</li>
-                        <li class="list-group-item">назойливость</li>
-                        <li class="list-group-item">сильная потребность сказать последнее слово</li>
-                        <li class="list-group-item">недоверие</li>
-                        <li class="list-group-item">категоричность</li>
-                        <li class="list-group-item">опора в основном на авторитетное мнение</li>
-                        <li class="list-group-item">наивность</li>
-                        <li class="list-group-item">ранимость</li>
-                    </ul>
-                </div>
-                <div class="row">
                     <div class="btn-group mt-2 mb-1" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" id='last' class="btn btn-secondary last"><svg
+                        <button type="button" id='last' class="btn btn-secondary last" disabled><svg
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-arrow-left-short" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
                                     d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                             </svg>назад</button>
-                        <button type="button" id='next' class="btn btn-secondary next">вперед<svg
+                        <button type="button" id='next' class="btn btn-secondary next" disabled>вперед<svg
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -94,6 +84,11 @@
                             тест</button>
                     </div>
                 </div>
+                <div class="row">
+                    <ul class="list-group ms-2" id="list-question">
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>

@@ -38,6 +38,8 @@ const isMobile = {
 let buttonHandler = new ButtonHandler('.input-elem', arrayNew, isMobile.any());
 
 buttonHandler.render();
+buttonHandler.checkBtnNext();
+
 
 document.querySelector('#next').onclick = () => {
     buttonHandler.counter('next');

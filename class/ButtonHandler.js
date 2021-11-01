@@ -30,8 +30,6 @@ class ButtonHandler {
                 console.log('result');
                 break;
         }
-
-
     }
 
     handlerArray() {// записываем ответ в массив
@@ -40,7 +38,7 @@ class ButtonHandler {
         for (var i = 0; i < inputElem.length; i++) {
             if (inputElem[i].checked) {
                 this.arrAnsw[this.count] = +inputElem[i].value;
-                break;
+                inputElem[i].checked = false;
             }
         }
     }
@@ -49,11 +47,28 @@ class ButtonHandler {
         let inputElem = document.querySelectorAll('.btn-check');
         if (this.arrAnsw[this.count]) {
             inputElem[this.arrAnsw[this.count] - 1].checked = true;
-        } else {
-            inputElem[0].checked = true;
         }
     }
 
+    disabledNext() {
+        console.log('disabledNext');
+
+        if (this.count >= this.arrAnsw.length) {
+            document.querySelector('#next').disabled = true;
+        }
+    }
+
+    checkBtnNext() {
+        let inputElem = document.querySelectorAll('.btn-check');
+        for (var i = 0; i < inputElem.length; i++) {
+            inputElem[i].onclick = () => {
+                document.querySelector('#next').disabled = false;
+                if (this.count === this.questArray.length - 1) {
+                    document.querySelector('#result').hidden = false;
+                }
+            }
+        }
+    }
 
 
     counter(arg) {
@@ -63,7 +78,7 @@ class ButtonHandler {
             return
         } else if (arg === 'next' && this.count === this.questArray.length - 1) {
             document.querySelector('#next').disabled = true;
-            document.querySelector('#result').hidden = false;
+
             return
         } else {
             document.querySelector('#last').disabled = false;
@@ -77,6 +92,7 @@ class ButtonHandler {
                 this.count++;
                 this.checkedInput();
                 this.render();
+                this.disabledNext();
                 break;
             case 'last':
                 this.handlerArray()
@@ -101,15 +117,17 @@ class ButtonHandler {
 
                 let chartGinger = new ChartGinger(res[0], res[1]);
                 if (this.isMobile) {
-                    chartGinger.render('2', '8', '1', '8', '400px');
+                    chartGinger.render('3', '14', '1', '400px');
                 } else {
-                    chartGinger.render('5', '16', '5', '12', '600px');
+                    chartGinger.render('5', '16', '3', '600px');
                 }
 
                 let tableGinger = new TableGinger(res[0], res[1]);
                 tableGinger.render();
         }
     }
+
+
 
     render() {
 
@@ -120,5 +138,7 @@ class ButtonHandler {
         }, '');
 
         document.querySelector('#list-question').innerHTML = listQuestion;//добавляем новый список
+
+
     }
 }

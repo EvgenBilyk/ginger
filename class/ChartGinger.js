@@ -5,7 +5,7 @@ class ChartGinger {
     }
 
 
-    render(weightLine, fontSizeLabel, weightPoint, fontSizeScale, canvasSize) {
+    render(weightLine, fontSizeLabel, weightPoint, canvasSize) {
         const data = {
             labels: [
                 'Паранойя',
@@ -26,11 +26,11 @@ class ChartGinger {
                     data: this.lineA,
                     fill: true,
                     borderColor: 'rgb(255, 99, 132)',
-                    pointBorderColor: 'rgb(225, 50, 102)',
+                    pointBorderColor: 'rgb(255, 99, 132)',
                     backgroundColor: 'rgba(240, 136, 136, 0.2)',
                     borderWidth: weightLine,
                     pointBorderWidth: weightPoint,
-                    pointBackgroundColor: 'rgba(251, 249, 255, 0.9)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
 
                 }, {
                     labelColor: 'rgba(54, 162, 235, 0.2)',
@@ -39,11 +39,11 @@ class ChartGinger {
                     data: this.lineB,
                     fill: true,
                     borderColor: 'rgb(54, 162, 235)',
-                    pointBorderColor: 'rgb(14, 112, 195)',
+                    pointBorderColor: 'rgb(54, 162, 235)',
                     backgroundColor: 'rgba(39, 183, 240, 0.2',
                     borderWidth: weightLine,
                     pointBorderWidth: weightPoint,
-                    pointBackgroundColor: 'rgba(251, 249, 255, 0.9)',
+                    pointBackgroundColor: 'rgb(54, 162, 235)',
                 },
                 // {
                 //     lineTension: 0.5,
@@ -74,7 +74,6 @@ class ChartGinger {
         let ctx = document.getElementById('myChart').getContext('2d');
         ctx.canvas.parentNode.style.height = canvasSize;
         ctx.canvas.parentNode.style.width = canvasSize;
-        document.querySelector('.chart-container').dataset.chart_1 = 1;
 
         var myChart = new Chart(ctx, {
             type: 'radar',
@@ -100,7 +99,7 @@ class ChartGinger {
                     },
                     label: {
                         color: 'rgb(144, 163, 179)',
-                        font: '20'
+                        font: '12'
                     },
                 },
                 plugins: {
@@ -111,19 +110,19 @@ class ChartGinger {
                         },
                         title: {
                             display: true,
-                            text: 'Диаграмма Гингера',
+                            text: `Время проведения теста: ${moment().format('HH:mm Дата: DD.MM.YYYY')}`,
                             color: 'rgba(80, 80, 80, 0.699)',
                             fullSize: false,
                             font: { weight: 'bold' },
-                            padding: '20'
+                            padding: '15'
                         }
                     },
                     subtitle: {
                         display: true,
-                        text: moment().format('DD.MM.YYYY h:mm:ss A'),
+                        text: 'Диаграмма Гингера',
                         font: {
                             weight: 'bold',
-                            size: 14
+                            size: 18
                         },
                     }
                 },
@@ -136,11 +135,11 @@ class ChartGinger {
                             stepSize: 1,
                             z: 1,
                             backdropColor: 'transporant',
-                            color: 'rgb(17, 5, 240)',
+                            color: 'rgb(123, 123, 136)',
                             showLabelBackdrop: false,
-                            font: {
-                                size: fontSizeScale
-                            }
+                            // font: {
+                            //     size: '10'
+                            // }
                         },
                         pointLabels: {
                             color: 'rgba(10, 100, 50, 0.699)',
